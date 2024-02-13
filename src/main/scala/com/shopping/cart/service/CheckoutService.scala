@@ -1,8 +1,17 @@
 package com.shopping.cart.service
 
-import com.shopping.cart.models.Model.Fruit
+import com.shopping.cart.models.Model.{Apple, Fruit, Orange}
 
 object CheckoutService {
 
-  def checkout(fruits: List[Fruit]): BigDecimal = fruits.map(_.price).sum
+  type Basket = List[Fruit]
+
+  def checkout(basket: Basket, applyOffers: Boolean = false): BigDecimal = {
+    if (applyOffers) {
+      ???
+    } else {
+      basket.map(_.price).sum
+    }
+  }
+
 }
